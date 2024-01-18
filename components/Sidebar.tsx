@@ -49,12 +49,12 @@ const Sidebar: React.FC<SidebarProps> = ({children}) => {
                             py-4
                         "
                     >
-                        {routes.map((item)=>{
+                        {routes.map((item)=>(
                             <SidebarItem 
                                 key={item.label}
                                 {...item}
                             />
-                        })}
+                        ))}
 
                     </div>
                 </Box>
