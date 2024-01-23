@@ -12,9 +12,9 @@ interface SuperbaseProviderProps{
 const SuperbaseProvider: React.FC<SuperbaseProviderProps> = ({
     children
 }) => {
-    const [supabaseClient] = useState(()=>{
+    const [supabaseClient] = useState(()=>
         createClientComponentClient<Database>()
-    })
+    )
     return (
         <SessionContextProvider supabaseClient={supabaseClient}>
             {children}
