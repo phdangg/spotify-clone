@@ -11,6 +11,6 @@ const ToasterProvider= ()=>{
                 color: '#fff'
             }
         }}/>
-    )
+    );
 }
-export default ToasterProvider
+export default ToasterProvider;
