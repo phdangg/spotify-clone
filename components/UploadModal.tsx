@@ -5,12 +5,14 @@ import Modal from "./Modal";
 import Input from "./Input";
 import { FieldValues,SubmitHandler,useForm } from "react-hook-form";
 import { useState } from "react";
+import {toast} from "react-hot-toast";
 import Button from "./Button";
+import { useUser } from "@/hooks/useUser";
 
 const UploadModal = () => {
-    const [isLoading,setIsLoading] = useState();
+    const [isLoading,setIsLoading] = useState(false);
     const uploadModal = useUploadModal();
-
+    const {user} = useUser();
     const {register,handleSubmit,reset} = useForm<FieldValues>({
         defaultValues:{
             author:'',
@@ -27,7 +29,21 @@ const UploadModal = () => {
         }
     }
     const onSubmit: SubmitHandler<FieldValues> = async (values) => {
+        try {
+            setIsLoading(true);
 
+            const imageFile = values.image?.[0];
+            const songFile = values.song?.[0];
+
+            if (!imageFile || !songFile || !user){
+                toast.error("Missing file");
+                return;
+            }
+        } catch (error) {
+            toast.error("Something went wrong")
+        } finally{
+            setIsLoading(false);
+        }
     }
     return (
         <Modal
