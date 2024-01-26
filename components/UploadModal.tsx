@@ -54,6 +54,25 @@ const UploadModal = () => {
                     cacheControl:'3600',
                     upsert: false
                 })
+            if (songError){
+                setIsLoading(false);
+                toast.error("Failed song upload.")
+            }
+
+            const {
+                data: imageData,
+                error: imageError
+            } = await supabaseClient
+                .storage
+                .from('images')
+                .upload(`image-${values.title}-${uniqueID}`,imageFile ,{
+                    cacheControl:'3600',
+                    upsert: false
+                })
+            if (imageError){
+                setIsLoading(false);
+                toast.error("Failed image upload.")
+            }
         } catch (error) {
             toast.error("Something went wrong")
         } finally{
