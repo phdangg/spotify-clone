@@ -1,4 +1,5 @@
 "use client";
+import SongItem from "@/components/SongItem";
 import {Song} from "@/types";
 interface PageContentProps{
     songs: Song[];
@@ -26,12 +27,13 @@ const PageContent: React.FC<PageContentProps> = ({
             gap-4
             mt-4
         ">
-            {songs.map((item)=>{
+            {songs.map((item)=>(
                 <SongItem
                     key={item.id}
                     onClick={()=>{}}
                     data={item}
-            })}
+                />
+            ))}
         </div>
     )
 }
