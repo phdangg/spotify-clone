@@ -1,9 +1,11 @@
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
+import getSongs from "@/actions/getSongs";
 
 export const revalidate = 0;
 
-export default function Home() {
+export default async function Home () {
+  const songs = await getSongs();
   return (
     <div className="
       bg-neutral-900
@@ -50,7 +52,7 @@ export default function Home() {
             </h1>
         </div>
         <div>
-          List of songs
+          {songs.map((song) => <div>{songs.title}</div>)}
         </div>
       </div>
     </div>
