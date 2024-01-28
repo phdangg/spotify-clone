@@ -3,6 +3,7 @@
 import useLoadingImage from "@/hooks/useLoadingImage";
 import {Song} from "@/types";
 import Image from "next/image";
+import PlayButton from "./PlayButton";
 
 interface SongItemProps{
     data: Song;
@@ -72,7 +73,7 @@ const SongItem: React.FC<SongItemProps> = ({
                 bottom-24
                 right-5
             ">
-                Play Button
+                <PlayButton />
             </div>
         </div>
     )   
