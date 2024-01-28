@@ -13,6 +13,9 @@ const MediaItem: React.FC<MediaItemProps> = ({
     onClick
 }) => {
     const imageUrl = useLoadingImage(data);
+    const handleClick=  () => {
+        
+    }
     return (
         <div>Media</div>
     );
