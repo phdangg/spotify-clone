@@ -1,4 +1,5 @@
 import getSongsByTitle from "@/actions/getSongsByTitle";
+import Header from "@/components/Header";
 
 interface SearchProps {
     searchParams: {
@@ -17,7 +18,9 @@ const Search = async ({searchParams}: SearchProps) => {
             overflow-hidden
             overflow-y-auto
         ">
-            Search
+            <Header>
+                Search
+            </Header>
         </div>
     )
 }
