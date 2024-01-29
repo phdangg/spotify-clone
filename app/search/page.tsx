@@ -18,7 +18,7 @@ const Search = async ({searchParams}: SearchProps) => {
             overflow-hidden
             overflow-y-auto
         ">
-            <Header>
+            <Header className="from-bg-neutral-900">
                 Search
             </Header>
         </div>
