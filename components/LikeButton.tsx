@@ -1,6 +1,12 @@
 "use client";
 
-const LikeButton = () => {
+interface LikeButtonProps {
+    songId: string;
+}
+
+const LikeButton: React.FC<LikeButtonProps>= ({
+    songId
+}) => {
 return (
     <div>
 
