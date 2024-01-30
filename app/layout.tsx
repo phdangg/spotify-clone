@@ -32,7 +32,8 @@ export default async function RootLayout({
             <ModalProvider />
               <Sidebar songs={userSong}>
                 {children}
-              </Sidebar>            
+              </Sidebar>
+              <Player/>            
           </UserProvider>
         </SuperbaseProvider>
       </body>
