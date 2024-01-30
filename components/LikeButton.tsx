@@ -76,7 +76,7 @@ const LikeButton: React.FC<LikeButtonProps>= ({
                 setIsLiked(true);
             }
         }
-        
+        router.refresh();
     }
 
     return (
