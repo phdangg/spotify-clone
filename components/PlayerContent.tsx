@@ -52,6 +52,8 @@ const PlayerContent: React.FC<PlayerContent> = ({
         player.setId(previousSong);
     }
 
+    
+
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 h-full">
             <div className="
