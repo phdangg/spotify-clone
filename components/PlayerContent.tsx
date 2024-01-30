@@ -8,7 +8,8 @@ import LikeButton from "./LikeButton";
 import { AiFillStepBackward, AiFillStepForward } from "react-icons/ai";
 import Slider from "./Slider";
 import usePlayer from "@/hooks/usePlayer";
-import { useState } from "react";
+import useSound from "use-sound";
+import { useEffect, useState } from "react";
 
 interface PlayerContent {
     song: Song;
@@ -52,8 +53,41 @@ const PlayerContent: React.FC<PlayerContent> = ({
         player.setId(previousSong);
     }
 
+    const [play, { pause, sound }] = useSound(
+        songUrl,
+        {
+            volume: volume,
+            onplay: () => setIsPlaying(true),
+            onend: () => {
+                setIsPlaying(false);
+                onPlayNext();
+            },
+            onpause: () => setIsPlaying(false),
+            format: ['mp3']
+        }
+    );
     
+    useEffect(()=>{
+        sound?.play();
+        return () => {
+            sound?.unload();
+        }
+    },[sound]);
 
+    const handlePlay = () => {
+        if(!isPlaying){
+            play();
+        }else{
+            pause();
+        }
+    }
+    const toggleMute = () => {
+        if (volume === 0){
+            setVolume(1);
+        }else{
+            setVolume(0);
+        }
+    }
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 h-full">
             <div className="
@@ -138,11 +172,14 @@ const PlayerContent: React.FC<PlayerContent> = ({
             <div className="hidden md:flex w-full justify-end pr-2">
                 <div className="flex items-center gap-x-2 w-[120px]">
                     <VolumeIcon
-                    onClick={()=>{}}
+                    onClick={toggleMute}
                     className="cursor-pointer"
                     size={34}
                     />
-                    <Slider/>
+                    <Slider
+                    value={volume}
+                    onChange={(value)=>setVolume(value)}
+                    />
                 </div>
             </div>
         </div>
