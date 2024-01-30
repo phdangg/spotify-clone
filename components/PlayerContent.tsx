@@ -109,7 +109,7 @@ const PlayerContent: React.FC<PlayerContent> = ({
                 items-center
             ">
                 <div
-                onClick={()=>{}}
+                onClick={handlePlay}
                 className="
                     h-10
                     w-10
@@ -135,6 +135,7 @@ const PlayerContent: React.FC<PlayerContent> = ({
                 gap-x-6
             ">
                 <AiFillStepBackward 
+                onClick={onPlayPrevious}
                 size={30} 
                 className="
                     text-neutral-400
@@ -143,7 +144,7 @@ const PlayerContent: React.FC<PlayerContent> = ({
                     transition
                 "/>
                 <div 
-                onClick={onPlayPrevious}
+                onClick={handlePlay}
                 className="
                     flex
                     items-center
