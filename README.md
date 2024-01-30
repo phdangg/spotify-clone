@@ -25,7 +25,7 @@ SUPABASE_SERVICE_ROLE_KEY=
 ```
 
 ### Add SQL Tables
-Use `database.sql` file, create songs and liked_songs table (there is a video tutorial)
+Use `database.sql` file, create songs and liked_songs table.
 
 ### Start the app
 
